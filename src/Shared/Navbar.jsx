@@ -139,20 +139,27 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </div>
-          {loading ? (
-            <div className="ml-[100px]">
-              <ColorRing
-                visible={true}
-                height="70"
-                width="70"
-                ariaLabel="color-ring-loading"
-                wrapperStyle={{}}
-                wrapperClass="color-ring-wrapper"
-                colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-              />
-            </div>
-          ) : (
-            <div className="navbar-end">
+
+          <div className="navbar-end">
+            {loading ? (
+              <div className="ml-[100px]">
+                <ColorRing
+                  visible={true}
+                  height="70"
+                  width="70"
+                  ariaLabel="color-ring-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="color-ring-wrapper"
+                  colors={[
+                    "#e15b64",
+                    "#f47e60",
+                    "#f8b26a",
+                    "#abbd81",
+                    "#849b87",
+                  ]}
+                />
+              </div>
+            ) : (
               <div>
                 {user ? (
                   <div className="flex items-center space-x-4">
@@ -225,8 +232,8 @@ const Navbar = () => {
                 Register
               </button> */}
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

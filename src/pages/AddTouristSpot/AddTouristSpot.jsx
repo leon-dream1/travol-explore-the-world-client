@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const AddTouristSpot = () => {
   const {
@@ -6,12 +9,31 @@ const AddTouristSpot = () => {
     handleSubmit,
     // eslint-disable-next-line no-unused-vars
     formState: { errors },
+    reset
   } = useForm();
+
+  const { user } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     console.log(data);
+
+    const newSpot = data;
+    fetch("http://localhost:5000/touristSpot", {
+      method: "POST",
+      body: JSON.stringify(newSpot),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(result => {
+      if(result.acknowledged){
+        toast.success("Congratulation!!!!! Spot is added SuccessFully.....");
+        reset()
+      }
+    })
   };
-//   console.log(errors);
+  //   console.log(errors);
   return (
     <div className="mt-[80px]">
       <h1 className="text-center text-[40px] font-inter text-slate-700 font-medium mb-[40px]">
@@ -25,8 +47,9 @@ const AddTouristSpot = () => {
           <input
             type="text"
             placeholder="Your Name"
+            defaultValue={user.displayName}
             className="input input-bordered w-full"
-            {...register("user-name")}
+            {...register("userName")}
             required
           />
         </div>
@@ -34,6 +57,7 @@ const AddTouristSpot = () => {
           <input
             type="email"
             placeholder="Your Email"
+            defaultValue={user.email}
             className="input input-bordered w-full"
             {...register("email")}
             required
@@ -45,7 +69,7 @@ const AddTouristSpot = () => {
             placeholder="Tourist Spot Name"
             className="input input-bordered w-full"
             required
-            {...register("spot-name")}
+            {...register("spotName")}
           />
         </div>
         <div>
@@ -63,7 +87,7 @@ const AddTouristSpot = () => {
             placeholder="Location"
             className="input input-bordered w-full"
             required
-            {...register("spot-location")}
+            {...register("spotLocation")}
           />
         </div>
         <div>
@@ -71,7 +95,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Tourist Spot Image"
             className="input input-bordered w-full"
-            {...register("spot-image")}
+            {...register("spotImage")}
           />
         </div>
         <div>
@@ -90,12 +114,12 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Travel Time in days"
             className="input input-bordered w-full"
-            {...register("travel-time")}
+            {...register("travelTime")}
           />
         </div>
         <div>
           <input
-            type="number"
+            type="text"
             placeholder="Average Cost"
             className="input input-bordered w-full"
             {...register("cost")}
@@ -106,7 +130,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Total Visitor Per Year"
             className="input input-bordered w-full"
-            {...register("total-visitor")}
+            {...register("totalVisitor")}
           />
         </div>
         <div className="col-span-2">
