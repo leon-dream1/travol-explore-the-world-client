@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import AddTouristSpot from "../pages/AddTouristSpot/AddTouristSpot";
+import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/addTouristSpot",
+        element: (
+          <PrivateRoute>
+            <AddTouristSpot />
+          </PrivateRoute>
+        ),
       },
     ],
   },

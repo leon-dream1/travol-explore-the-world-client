@@ -1,14 +1,15 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import userIcon from '../../src/assets/images/user.png'
+import userIcon from "../../src/assets/images/user.png";
 import logo from "../../public/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import { ColorRing } from "react-loader-spinner";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user, logOut, setUser } = useContext(AuthContext);
+  const { user, logOut, setUser, loading } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
@@ -18,7 +19,6 @@ const Navbar = () => {
       })
       .catch((error) => console.log(error));
   };
-
 
   return (
     <div className="bg-slate-600 py-2">
@@ -139,63 +139,80 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </div>
-          <div className="navbar-end">
-            <div>
-              {user ? (
-                <div className="flex items-center space-x-4">
-                  <div className="dropdown dropdown-end">
-                    <div>
-                      <div
-                        tabIndex={0}
-                        role="button"
-                        className="btn btn-ghost btn-circle avatar"
-                      >
+          {loading ? (
+            <div className="ml-[100px]">
+              <ColorRing
+                visible={true}
+                height="70"
+                width="70"
+                ariaLabel="color-ring-loading"
+                wrapperStyle={{}}
+                wrapperClass="color-ring-wrapper"
+                colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+              />
+            </div>
+          ) : (
+            <div className="navbar-end">
+              <div>
+                {user ? (
+                  <div className="flex items-center space-x-4">
+                    <div className="dropdown dropdown-end">
+                      <div>
                         <div
-                          className="w-10 rounded-full"
-                          data-tooltip-id="my-tooltip"
+                          tabIndex={0}
+                          role="button"
+                          className="btn btn-ghost btn-circle avatar"
                         >
-                          <img
-                            alt="Tailwind CSS Navbar component"
-                            src={user.photoURL ? user.photoURL : { userIcon }}
-                          />
+                          <div
+                            className="w-10 rounded-full"
+                            data-tooltip-id="my-tooltip"
+                          >
+                            <img
+                              alt="Tailwind CSS Navbar component"
+                              src={user.photoURL ? user.photoURL : { userIcon }}
+                            />
+                          </div>
                         </div>
+                        <ul
+                          tabIndex={0}
+                          className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                        >
+                          <li>
+                            <a>{user.displayName}</a>
+                          </li>
+                        </ul>
                       </div>
-                      <ul
-                        tabIndex={0}
-                        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                      >
-                        <li>
-                          <a>{user.displayName}</a>
-                        </li>
-                      </ul>
+                      <Tooltip
+                        id="my-tooltip"
+                        content={user.displayName}
+                        offset={30}
+                      />
                     </div>
-                    <Tooltip id="my-tooltip" content={user.displayName} offset={30}/>
+                    <button
+                      onClick={handleLogout}
+                      className="bg-[#ee4040] text-white  text-[14px] md:text-[18px] font-merriweather font-semibold px-[20px] md:px-[35px] py-[10px] rounded-lg"
+                    >
+                      Log out
+                    </button>
                   </div>
-                  <button
-                    onClick={handleLogout}
-                    className="bg-[#ee4040] text-white  text-[14px] md:text-[18px] font-merriweather font-semibold px-[20px] md:px-[35px] py-[10px] rounded-lg"
-                  >
-                    Log out
-                  </button>
-                </div>
-              ) : (
-                <div className="space-x-6">
-                  <button
-                    onClick={() => navigate("/login")}
-                    className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
-                  >
-                    Login
-                  </button>
-                  <button
-                    onClick={() => navigate("/register")}
-                    className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
-                  >
-                    Register
-                  </button>
-                </div>
-              )}
+                ) : (
+                  <div className="space-x-6">
+                    <button
+                      onClick={() => navigate("/login")}
+                      className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                    >
+                      Login
+                    </button>
+                    <button
+                      onClick={() => navigate("/register")}
+                      className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                    >
+                      Register
+                    </button>
+                  </div>
+                )}
 
-              {/* <button
+                {/* <button
                 onClick={() => navigate("/login")}
                 className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
               >
@@ -207,8 +224,9 @@ const Navbar = () => {
               >
                 Register
               </button> */}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
