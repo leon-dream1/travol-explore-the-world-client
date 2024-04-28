@@ -11,7 +11,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, setUser,setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -23,6 +23,8 @@ const Register = () => {
         toast.success("Your Registration is successful.........");
         updateUserProfile(name, photoURL)
           .then(() => {
+            setUser(result.user);
+            setLoading(false)
             toast.success("Update is saved successfully......");
             navigate("/");
           })

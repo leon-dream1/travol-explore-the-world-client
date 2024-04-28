@@ -4,12 +4,12 @@ import logo from "../../public/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Tooltip } from "react-tooltip";
-import { ColorRing } from "react-loader-spinner";
+// import { ColorRing } from "react-loader-spinner";
 
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { user, logOut, setUser, loading } = useContext(AuthContext);
+  const { user, logOut, setUser } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
@@ -141,85 +141,67 @@ const Navbar = () => {
           </div>
 
           <div className="navbar-end">
-            {loading ? (
-              <div className="ml-[100px]">
-                <ColorRing
-                  visible={true}
-                  height="70"
-                  width="70"
-                  ariaLabel="color-ring-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="color-ring-wrapper"
-                  colors={[
-                    "#e15b64",
-                    "#f47e60",
-                    "#f8b26a",
-                    "#abbd81",
-                    "#849b87",
-                  ]}
-                />
-              </div>
-            ) : (
-              <div>
-                {user ? (
-                  <div className="flex items-center space-x-4">
-                    <div className="dropdown dropdown-end">
-                      <div>
+            <div>
+              {user ? (
+                <div className="flex items-center space-x-4">
+                  <div className="dropdown dropdown-end">
+                    <div>
+                      <div
+                        tabIndex={0}
+                        role="button"
+                        className="btn btn-ghost btn-circle avatar"
+                      >
                         <div
-                          tabIndex={0}
-                          role="button"
-                          className="btn btn-ghost btn-circle avatar"
+                          className="w-10 rounded-full"
+                          data-tooltip-id="my-tooltip"
                         >
-                          <div
-                            className="w-10 rounded-full"
-                            data-tooltip-id="my-tooltip"
-                          >
-                            <img
-                              alt="Tailwind CSS Navbar component"
-                              src={user.photoURL ? user.photoURL : { userIcon }}
-                            />
-                          </div>
+                          <img
+                            alt="Tailwind CSS Navbar component"
+                            src={user.photoURL ? user.photoURL : { userIcon }}
+                          />
                         </div>
-                        <ul
-                          tabIndex={0}
-                          className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-                        >
-                          <li>
-                            <a>{user.displayName}</a>
-                          </li>
-                        </ul>
                       </div>
-                      <Tooltip
-                        id="my-tooltip"
-                        content={user.displayName}
-                        offset={30}
-                      />
+                      <ul
+                        tabIndex={0}
+                        className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                      >
+                        <li>
+                          <a>{user.displayName}</a>
+                        </li>
+                      </ul>
                     </div>
-                    <button
-                      onClick={handleLogout}
-                      className="bg-[#ee4040] text-white  text-[14px] md:text-[18px] font-merriweather font-semibold px-[20px] md:px-[35px] py-[10px] rounded-lg"
-                    >
-                      Log out
-                    </button>
+                    <Tooltip
+                      id="my-tooltip"
+                      content={user.displayName}
+                      offset={20}
+                      className="z-10"
+                    />
                   </div>
-                ) : (
-                  <div className="space-x-6">
-                    <button
-                      onClick={() => navigate("/login")}
-                      className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
-                    >
-                      Login
-                    </button>
-                    <button
-                      onClick={() => navigate("/register")}
-                      className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
-                    >
-                      Register
-                    </button>
-                  </div>
-                )}
+                  <button
+                    onClick={handleLogout}
+                    className="bg-[#ee4040] text-white  text-[14px] md:text-[18px] font-merriweather font-semibold px-[20px] md:px-[35px] py-[10px] rounded-lg"
+                  >
+                    Log out
+                  </button>
+                </div>
+              ) : (
+                <div className="space-x-6">
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={() => navigate("/register")}
+                    className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                  >
+                    Register
+                  </button>
+                </div>
+              )}
 
-                {/* <button
+              {/* <button
                 onClick={() => navigate("/login")}
                 className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
               >
@@ -231,8 +213,7 @@ const Navbar = () => {
               >
                 Register
               </button> */}
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </div>

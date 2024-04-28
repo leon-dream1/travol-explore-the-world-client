@@ -95,6 +95,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Tourist Spot Image"
             className="input input-bordered w-full"
+            required
             {...register("spotImage")}
           />
         </div>
@@ -115,6 +116,7 @@ const AddTouristSpot = () => {
             placeholder="Travel Time in days"
             className="input input-bordered w-full"
             {...register("travelTime")}
+            required
           />
         </div>
         <div>
@@ -123,6 +125,7 @@ const AddTouristSpot = () => {
             placeholder="Average Cost"
             className="input input-bordered w-full"
             {...register("cost")}
+            required
           />
         </div>
         <div>
@@ -131,6 +134,7 @@ const AddTouristSpot = () => {
             placeholder="Total Visitor Per Year"
             className="input input-bordered w-full"
             {...register("totalVisitor")}
+            required
           />
         </div>
         <div className="col-span-2">
@@ -139,6 +143,7 @@ const AddTouristSpot = () => {
             placeholder="Short Description"
             className="input input-bordered w-full"
             {...register("description")}
+            required
           />
         </div>
         <div className="col-span-2">

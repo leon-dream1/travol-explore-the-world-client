@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
 
   const updateUserProfile = (name, photoURL) => {
     setLoading(true);
-
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
@@ -62,7 +61,8 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     });
   }, []);
-  console.log("Userrrrrrrr", user);
+
+  console.log(loading);
 
   const contextValue = {
     user,
@@ -72,7 +72,9 @@ const AuthProvider = ({ children }) => {
     logOut,
     logInWithEmailAndPassword,
     googleLogin,
-    faceBookLogin
+    faceBookLogin,
+    setUser, 
+    setLoading
   };
 
   return (
