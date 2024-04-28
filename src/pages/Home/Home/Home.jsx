@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import CountrySection from "../CountrySection/CountrySection";
 import TouristSpot from "../TouristSpot/TouristSpot";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <Banner />
       <TouristSpot />
+      <CountrySection />
     </div>
   );
 };
