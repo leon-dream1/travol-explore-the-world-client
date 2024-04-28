@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const UpdateSpot = () => {
-  const [selectedSpot, setSelectedSpot] = useState({});
   const { id } = useParams();
 
   const {
@@ -14,12 +12,6 @@ const UpdateSpot = () => {
     formState: { errors },
     // reset,
   } = useForm();
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/touristSpot/${id}`)
-      .then((res) => res.json())
-      .then((data) => setSelectedSpot(data));
-  }, []);
 
   const onSubmit = (data) => {
     const updatedSpot = data;
@@ -54,7 +46,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Tourist Spot Name"
             className="input input-bordered w-full"
-            value={selectedSpot.spotName}
             required
             {...register("spotName")}
           />
@@ -64,7 +55,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Tourist Spot Country Name"
             className="input input-bordered w-full"
-            value={selectedSpot.country}
             required
             {...register("country")}
           />
@@ -74,7 +64,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Location"
             className="input input-bordered w-full"
-            value={selectedSpot.spotLocation}
             required
             {...register("spotLocation")}
           />
@@ -84,7 +73,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Tourist Spot Image"
             className="input input-bordered w-full"
-            value={selectedSpot.spotImage}
             required
             {...register("spotImage")}
           />
@@ -92,7 +80,6 @@ const UpdateSpot = () => {
         <div>
           <select
             className="input input-bordered w-full"
-            value={selectedSpot.season}
             {...register("season")}
           >
             <option value="winter">Winter</option>
@@ -105,7 +92,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Travel Time in days"
             className="input input-bordered w-full"
-            value={selectedSpot.travelTime}
             {...register("travelTime")}
             required
           />
@@ -115,7 +101,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Average Cost"
             className="input input-bordered w-full"
-            value={selectedSpot.cost}
             {...register("cost")}
             required
           />
@@ -125,7 +110,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Total Visitor Per Year"
             className="input input-bordered w-full"
-            value={selectedSpot.totalVisitor}
             {...register("totalVisitor")}
             required
           />
@@ -135,7 +119,6 @@ const UpdateSpot = () => {
             type="text"
             placeholder="Short Description"
             className="input input-bordered w-full"
-            value={selectedSpot.description}
             {...register("description")}
             required
           />

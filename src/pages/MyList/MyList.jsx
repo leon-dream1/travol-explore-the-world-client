@@ -1,21 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MyList = () => {
   const [mySpot, setMySpot] = useState([]);
+  // const [remainingTouristSpot, setRemainingTouristSpot] = useState(mySpot);
 
   const { user } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/myTouristSpot/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setMySpot(data));
+      .then((data) => {
+        setMySpot(data);
+      });
   }, []);
 
-  
+  const handleDelete = (id) => {
+    console.log(id);
+    fetch(`http://localhost:5000/touristSpot/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.deletedCount) {
+          const remainingSpot = mySpot.filter((spot) => spot._id !== id);
+          setMySpot(remainingSpot);
+          toast.success("Spot is deleted Successfully");
+        }
+      });
+  };
+  console.log(mySpot);
 
   return (
     <div className="container mx-auto my-[100px]">
@@ -67,7 +85,7 @@ const MyList = () => {
                   </td>
                   <td className="p-3">
                     <span
-                    onClick={() => navigate(`/updateSpot/${spot._id}`)}
+                      onClick={() => navigate(`/updateSpot/${spot._id}`)}
                       className="px-4 py-2 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50 cursor-pointer"
                     >
                       <span>Update</span>
@@ -75,7 +93,10 @@ const MyList = () => {
                   </td>
 
                   <td className="p-3 ">
-                    <span className="px-4 py-2 font-semibold rounded-md dark:bg-red-600 dark:text-gray-50 cursor-pointer">
+                    <span
+                      onClick={() => handleDelete(spot._id)}
+                      className="px-4 py-2 font-semibold rounded-md dark:bg-red-600 dark:text-gray-50 cursor-pointer"
+                    >
                       <span>Delete</span>
                     </span>
                   </td>
