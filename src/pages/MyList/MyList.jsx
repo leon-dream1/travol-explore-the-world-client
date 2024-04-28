@@ -4,14 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 const MyList = () => {
   const [mySpot, setMySpot] = useState([]);
+
   const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+
+    const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/myTouristSpot/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMySpot(data));
   }, []);
+
+  
+
   return (
     <div className="container mx-auto my-[100px]">
       <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center">
@@ -61,32 +66,14 @@ const MyList = () => {
                     <p>${spot?.cost}</p>
                   </td>
                   <td className="p-3">
-                    <span className="px-4 py-2 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50 cursor-pointer">
-                      <div>
-                        <Modal
-                          isOpen={modalIsOpen}
-                          onAfterOpen={afterOpenModal}
-                          onRequestClose={closeModal}
-                          style={customStyles}
-                          contentLabel="Example Modal"
-                        >
-                          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
-                            Hello
-                          </h2>
-                          <button onClick={closeModal}>close</button>
-                          <div>I am a modal</div>
-                          <form>
-                            <input />
-                            <button>tab navigation</button>
-                            <button>stays</button>
-                            <button>inside</button>
-                            <button>the modal</button>
-                          </form>
-                        </Modal>
-                      </div>
+                    <span
+                    onClick={() => navigate(`/updateSpot/${spot._id}`)}
+                      className="px-4 py-2 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50 cursor-pointer"
+                    >
                       <span>Update</span>
                     </span>
                   </td>
+
                   <td className="p-3 ">
                     <span className="px-4 py-2 font-semibold rounded-md dark:bg-red-600 dark:text-gray-50 cursor-pointer">
                       <span>Delete</span>

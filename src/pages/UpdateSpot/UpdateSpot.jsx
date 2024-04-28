@@ -1,43 +1,49 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const AddTouristSpot = () => {
+const UpdateSpot = () => {
+  const [selectedSpot, setSelectedSpot] = useState({});
+  const { id } = useParams();
+
   const {
     register,
     handleSubmit,
     // eslint-disable-next-line no-unused-vars
     formState: { errors },
-    reset
+    // reset,
   } = useForm();
 
-  const { user } = useContext(AuthContext);
+  useEffect(() => {
+    fetch(`http://localhost:5000/touristSpot/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSelectedSpot(data));
+  }, []);
 
   const onSubmit = (data) => {
-    console.log(data);
-
-    const newSpot = data;
-    fetch("http://localhost:5000/touristSpot", {
-      method: "POST",
-      body: JSON.stringify(newSpot),
+    const updatedSpot = data;
+    console.log(updatedSpot);
+    fetch(`http://localhost:5000/touristSpot/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(updatedSpot),
       headers: {
         "Content-type": "application/json",
       },
     })
-    .then(res => res.json())
-    .then(result => {
-      if(result.acknowledged){
-        toast.success("Congratulation!!!!! Spot is added SuccessFully.....");
-        reset()
-      }
-    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.modifiedCount) {
+          toast.success("Congratulation!!!!! Updated Info Successfully.....");
+        }
+      });
   };
-  //   console.log(errors);
+
   return (
     <div className="mt-[80px]">
       <h1 className="text-center text-[40px] font-inter text-blue-700 font-medium mb-[40px]">
-        Add Your Favorite Spot
+        Update Your Favorite Spot Information
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -46,28 +52,9 @@ const AddTouristSpot = () => {
         <div>
           <input
             type="text"
-            placeholder="Your Name"
-            defaultValue={user.displayName}
-            className="input input-bordered w-full"
-            {...register("userName")}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="email"
-            placeholder="Your Email"
-            defaultValue={user.email}
-            className="input input-bordered w-full"
-            {...register("email")}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="text"
             placeholder="Tourist Spot Name"
             className="input input-bordered w-full"
+            value={selectedSpot.spotName}
             required
             {...register("spotName")}
           />
@@ -77,6 +64,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Tourist Spot Country Name"
             className="input input-bordered w-full"
+            value={selectedSpot.country}
             required
             {...register("country")}
           />
@@ -86,6 +74,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Location"
             className="input input-bordered w-full"
+            value={selectedSpot.spotLocation}
             required
             {...register("spotLocation")}
           />
@@ -95,6 +84,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Tourist Spot Image"
             className="input input-bordered w-full"
+            value={selectedSpot.spotImage}
             required
             {...register("spotImage")}
           />
@@ -102,6 +92,7 @@ const AddTouristSpot = () => {
         <div>
           <select
             className="input input-bordered w-full"
+            value={selectedSpot.season}
             {...register("season")}
           >
             <option value="winter">Winter</option>
@@ -114,6 +105,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Travel Time in days"
             className="input input-bordered w-full"
+            value={selectedSpot.travelTime}
             {...register("travelTime")}
             required
           />
@@ -123,6 +115,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Average Cost"
             className="input input-bordered w-full"
+            value={selectedSpot.cost}
             {...register("cost")}
             required
           />
@@ -132,6 +125,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Total Visitor Per Year"
             className="input input-bordered w-full"
+            value={selectedSpot.totalVisitor}
             {...register("totalVisitor")}
             required
           />
@@ -141,6 +135,7 @@ const AddTouristSpot = () => {
             type="text"
             placeholder="Short Description"
             className="input input-bordered w-full"
+            value={selectedSpot.description}
             {...register("description")}
             required
           />
@@ -148,7 +143,7 @@ const AddTouristSpot = () => {
         <div className="col-span-2">
           <input
             type="submit"
-            value="ADD"
+            value="UPDATE"
             className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
           />
         </div>
@@ -157,4 +152,4 @@ const AddTouristSpot = () => {
   );
 };
 
-export default AddTouristSpot;
+export default UpdateSpot;
