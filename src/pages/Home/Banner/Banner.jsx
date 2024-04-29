@@ -1,4 +1,13 @@
+import { Typewriter } from "react-simple-typewriter";
+
 const Banner = () => {
+  const handleType = (count) => {
+    console.log(count);
+  };
+
+  const handleDone = () => {
+    console.log(`Done after 5 loops!`);
+  };
   return (
     <div className="carousel w-full">
       <div
@@ -10,9 +19,26 @@ const Banner = () => {
             <p className="text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[60px] text-white font-merriweather font-extrabold">
-              Explore The World With{" "}
-              <span className="text-amber-500">TRAVOL</span>
+            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+              Explore The {/* <span className="text-amber-500">TRAVOL</span> */}
+              <span style={{ color: "#FFBF00", fontWeight: "bold" }}>
+                <Typewriter
+                  words={[
+                    "World With TRAVOL",
+                    "Rome With TRAVOL",
+                    "World With Our Guide",
+                    "World with Next Journey!",
+                  ]}
+                  loop={5}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  onLoopDone={handleDone}
+                  onType={handleType}
+                />
+              </span>
             </h1>
           </div>
         </div>
@@ -34,8 +60,26 @@ const Banner = () => {
             <p className="text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[60px] text-blue-600 font-merriweather font-extrabold">
-              Explore Rome With <span className="text-amber-500">TRAVOL</span>
+            <h1 className="text-[50px] text-blue-600 font-merriweather font-extrabold">
+              Explore The {/* <span className="text-amber-500">TRAVOL</span> */}
+              <span style={{ color: "#FFBF00", fontWeight: "bold" }}>
+                <Typewriter
+                  words={[
+                    "World With TRAVOL",
+                    "Rome With TRAVOL",
+                    "World With Our Guide",
+                    "World with Next Journey!",
+                  ]}
+                  loop={5}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  onLoopDone={handleDone}
+                  onType={handleType}
+                />
+              </span>
             </h1>
           </div>
         </div>
@@ -57,9 +101,27 @@ const Banner = () => {
             <p className="text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[60px] text-white font-merriweather font-extrabold">
-              Discover The World With{" "}
-              <span className="text-amber-500">Our Guide</span>
+            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+              Discover The{" "}
+              {/* <span className="text-amber-500">TRAVOL</span> */}
+              <span style={{ color: "red", fontWeight: "bold" }}>
+                <Typewriter
+                  words={[
+                    "World With TRAVOL",
+                    "Rome With TRAVOL",
+                    "World With Our Guide",
+                    "World with Next Journey!",
+                  ]}
+                  loop={5}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  onLoopDone={handleDone}
+                  onType={handleType}
+                />
+              </span>
             </h1>
           </div>
         </div>
@@ -81,9 +143,29 @@ const Banner = () => {
             <p className="text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[60px] text-white font-merriweather font-extrabold">
-              Discover Your Wanderlust Where Will Your
-              <span className="text-amber-500"> Next Journey !</span>
+            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+              {/* Discover Your Wanderlust Where Will Your
+              <span className="text-amber-500"> Next Journey !</span> */}
+              Discover Your{" "}
+              {/* <span className="text-amber-500">TRAVOL</span> */}
+              <span style={{ color: "red", fontWeight: "bold" }}>
+                <Typewriter
+                  words={[
+                    "World With TRAVOL",
+                    "Rome With TRAVOL",
+                    "World With Our Guide",
+                    "World with Next Journey!",
+                  ]}
+                  loop={5}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  onLoopDone={handleDone}
+                  onType={handleType}
+                />
+              </span>
             </h1>
           </div>
         </div>
@@ -105,9 +187,26 @@ const Banner = () => {
             <p className="text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[60px] text-white font-merriweather font-extrabold">
-              Where Will Your Imagination Take You
-              <span className="text-amber-500"> Today?</span>
+            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+              Explore the
+              <span style={{ color: "red", fontWeight: "bold" }}>
+                <Typewriter
+                  words={[
+                    "World With TRAVOL",
+                    "Rome With TRAVOL",
+                    "World With Our Guide",
+                    "World with Next Journey!",
+                  ]}
+                  loop={5}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  onLoopDone={handleDone}
+                  onType={handleType}
+                />
+              </span>
             </h1>
           </div>
         </div>

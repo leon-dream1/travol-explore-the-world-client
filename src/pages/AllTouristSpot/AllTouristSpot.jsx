@@ -1,18 +1,57 @@
+import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const AllTouristSpot = () => {
-  const allTouristSpot = useLoaderData();
-  console.log(allTouristSpot);
-
+  const data = useLoaderData();
   const navigate = useNavigate();
 
+  // eslint-disable-next-line no-unused-vars
+  const [allTouristSpot, setAllTouristSpot] = useState(data);
+  const [sortBy, setSortBy] = useState(null);
+
+  if (sortBy === "asc") {
+    allTouristSpot.sort((a, b) => {
+      console.log(a.cost);
+      if (parseInt(a.cost) < parseInt(b.cost)) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  if (sortBy === "desc") {
+    allTouristSpot.sort((a, b) => {
+      console.log(a.cost);
+      if (parseInt(a.cost) > parseInt(b.cost)) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   return (
-    <div className="container mx-auto my-[100px]">
-      <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center">
+    <div className="container mx-auto my-[60px]">
+      <div className="text-center">
+        <details className="dropdown">
+          <summary className="m-1 btn bg-red-600 hover:bg-red-600 text-white">
+            Sort
+          </summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <li onClick={() => setSortBy("asc")}>
+              <a>In Ascending</a>
+            </li>
+            <li onClick={() => setSortBy("desc")}>
+              <a>In Descending</a>
+            </li>
+          </ul>
+          {/* <li onClick={() => setSortBy("asc")}>In Ascending</li> */}
+          {/* <li onClick={() => setSortBy("desc")}>In Descending</li> */}
+        </details>
+      </div>
+      <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center mt-[90px]">
         All Tourist Spot
       </h2>
       <div className="grid grid-cols-3 gap-6">
-        {allTouristSpot.map((spot) => (
+        {allTouristSpot?.map((spot) => (
           <div
             key={spot._id}
             className="max-w-sm p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900 mt-[50px]"
