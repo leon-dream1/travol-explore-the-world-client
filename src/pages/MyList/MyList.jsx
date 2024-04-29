@@ -12,7 +12,7 @@ const MyList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myTouristSpot/${user.email}`)
+    fetch(`https://travol-explore-the-world-server.vercel.app/myTouristSpot/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMySpot(data);
@@ -21,7 +21,7 @@ const MyList = () => {
 
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/touristSpot/${id}`, {
+    fetch(`https://travol-explore-the-world-server.vercel.app/touristSpot/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

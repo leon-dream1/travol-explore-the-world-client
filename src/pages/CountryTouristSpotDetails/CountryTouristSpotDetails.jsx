@@ -6,7 +6,7 @@ const CountryTouristSpotDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/countrySpot/${id}`)
+    fetch(`https://travol-explore-the-world-server.vercel.app/countrySpot/${id}`)
       .then((res) => res.json())
       .then((data) => setSelectedCountrySpot(data));
   }, []);

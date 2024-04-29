@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
       {
         path: "/allTouristSpot",
         element: <AllTouristSpot />,
-        loader: () => fetch("http://localhost:5000/allTouristSpot"),
+        loader: () => fetch("https://travol-explore-the-world-server.vercel.app/allTouristSpot"),
       },
       {
         path: "/addTouristSpot",

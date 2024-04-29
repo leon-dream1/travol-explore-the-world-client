@@ -18,7 +18,7 @@ const AddTouristSpot = () => {
     console.log(data);
 
     const newSpot = data;
-    fetch("http://localhost:5000/touristSpot", {
+    fetch("https://travol-explore-the-world-server.vercel.app/touristSpot", {
       method: "POST",
       body: JSON.stringify(newSpot),
       headers: {

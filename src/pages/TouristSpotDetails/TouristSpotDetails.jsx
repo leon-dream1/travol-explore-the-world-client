@@ -6,7 +6,7 @@ const TouristSpotDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/touristSpot/${id}`)
+    fetch(`https://travol-explore-the-world-server.vercel.app/touristSpot/${id}`)
       .then((res) => res.json())
       .then((data) => setSelectedSpot(data));
   }, []);

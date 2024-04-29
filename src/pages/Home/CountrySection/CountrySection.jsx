@@ -6,7 +6,7 @@ const CountrySection = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/countries")
+    fetch("https://travol-explore-the-world-server.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => setCountries(data));
   });

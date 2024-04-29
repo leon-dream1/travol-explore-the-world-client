@@ -6,7 +6,7 @@ const TouristSpot = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/touristSpot")
+    fetch("https://travol-explore-the-world-server.vercel.app/touristSpot")
       .then((res) => res.json())
       .then((data) => setTouristSpot(data));
   }, []);

@@ -16,7 +16,7 @@ const UpdateSpot = () => {
   const onSubmit = (data) => {
     const updatedSpot = data;
     console.log(updatedSpot);
-    fetch(`http://localhost:5000/touristSpot/${id}`, {
+    fetch(`https://travol-explore-the-world-server.vercel.app/touristSpot/${id}`, {
       method: "PUT",
       body: JSON.stringify(updatedSpot),
       headers: {

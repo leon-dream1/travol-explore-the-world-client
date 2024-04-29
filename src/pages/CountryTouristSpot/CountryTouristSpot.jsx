@@ -9,7 +9,7 @@ const CountryTouristSpot = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/countryAllSpot/${countryName}`)
+    fetch(`https://travol-explore-the-world-server.vercel.app/countryAllSpot/${countryName}`)
       .then((res) => res.json())
       .then((data) => setSelectedCountrySpot(data));
   }, []);
