@@ -22,7 +22,7 @@ const CountrySection = () => {
           <div
             onClick={() => navigate(`/countryAllTouristSpot/${country.country_name}`)}
             key={country._id}
-            className="max-w-sm rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900 mt-[50px] cursor-pointer"
+            className="max-w-sm rounded-md p-6 shadow-md dark:bg-gray-50 dark:text-gray-900 mt-[50px] cursor-pointer"
           >
             <img
               src={country.country_image}
