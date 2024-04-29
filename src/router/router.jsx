@@ -10,6 +10,8 @@ import TouristSpotDetails from "../pages/TouristSpotDetails/TouristSpotDetails";
 import AllTouristSpot from "../pages/AllTouristSpot/AllTouristSpot";
 import MyList from "../pages/MyList/MyList";
 import UpdateSpot from "../pages/UpdateSpot/UpdateSpot";
+import CountryTouristSpot from "../pages/CountryTouristSpot/CountryTouristSpot";
+import CountryTouristSpotDetails from "../pages/CountryTouristSpotDetails/CountryTouristSpotDetails";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ export const router = createBrowserRouter([
             <UpdateSpot />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/countryAllTouristSpot/:countryName",
+        element: <CountryTouristSpot />,
+      },
+      {
+        path: "/countryTouristSpot/:id",
+        element: <CountryTouristSpotDetails />,
       },
     ],
   },

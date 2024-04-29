@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CountrySection = () => {
   const [countries, setCountries] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetch("http://localhost:5000/countries")
       .then((res) => res.json())
       .then((data) => setCountries(data));
   });
+
+
   return (
     <div className="container mx-auto my-[100px]">
       <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center">
@@ -15,8 +20,9 @@ const CountrySection = () => {
       <div className="grid grid-cols-3 gap-6">
         {countries.map((country) => (
           <div
+            onClick={() => navigate(`/countryAllTouristSpot/${country.country_name}`)}
             key={country._id}
-            className="max-w-sm rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900 mt-[50px]"
+            className="max-w-sm rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900 mt-[50px] cursor-pointer"
           >
             <img
               src={country.country_image}
