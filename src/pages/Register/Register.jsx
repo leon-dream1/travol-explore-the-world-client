@@ -11,7 +11,8 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser, updateUserProfile, setUser,setLoading } = useContext(AuthContext);
+  const { createUser, updateUserProfile, setUser, setLoading } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const Register = () => {
         updateUserProfile(name, photoURL)
           .then(() => {
             setUser(result.user);
-            setLoading(false)
+            setLoading(false);
             toast.success("Update is saved successfully......");
             navigate("/");
           })
@@ -78,11 +79,6 @@ const Register = () => {
               pattern: /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/,
             })}
           />
-          {/* {!showPassword ? (
-            <FaRegEyeSlash onClick={handleRegEye} size={30} />
-          ) : (
-            <FaEye onClick={handleEye} size={30} />
-          )} */}
         </div>
         {errors.password ? (
           <span className="text-red-700">

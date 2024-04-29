@@ -2,19 +2,20 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+console.log(import.meta.env.VITE_SOME_KEY);
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAD4EgXIIQGoGve6RTHWlXs0fgkCDqdrVo",
-  authDomain: "travol-explore-the-world.firebaseapp.com",
-  projectId: "travol-explore-the-world",
-  storageBucket: "travol-explore-the-world.appspot.com",
-  messagingSenderId: "679337636051",
-  appId: "1:679337636051:web:747749c414a8d93da2a426"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 
 export default auth;
