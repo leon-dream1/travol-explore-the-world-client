@@ -60,8 +60,8 @@ const Login = () => {
   };
 
   return (
-    <div className="w-[30%] mx-auto mt-[120px] p-[60px] border rounded-lg">
-      <h1 className="text-center text-[40px] font-inter text-slate-700 font-medium mb-[40px]">
+    <div className="w-[100%] lg:w-[30%] mx-auto mt-[70px] lg:mt-[120px] p-[30px] lg:p-[60px] border rounded-lg">
+      <h1 className="text-center text-[20px] md:text-[30px] lg:text-[40px] font-inter text-slate-700 font-medium mb-[40px]">
         Login To Join with Us
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-[20px]">

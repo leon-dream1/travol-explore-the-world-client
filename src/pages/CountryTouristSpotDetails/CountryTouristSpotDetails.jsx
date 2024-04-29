@@ -12,8 +12,8 @@ const CountryTouristSpotDetails = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-[150px]">
-      <div className="grid grid-cols-2 gap-8 items-center">
+    <div className="container mx-auto mt-[100px] lg:mt-[150px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center m-[20px] lg:m-0">
         <div>
           <img
             src={selectedCountrySpot.spotImage}
@@ -23,7 +23,7 @@ const CountryTouristSpotDetails = () => {
         </div>
         <div>
           <div className="mt-6 mb-2">
-            <span className="block text-[50px] font-medium tracking-widest uppercase dark:text-violet-600">
+            <span className="block text-[25px] md:[35px] lg:text-[50px] font-medium tracking-widest uppercase dark:text-violet-600">
               {selectedCountrySpot.spotName}
             </span>
             <h2 className="text-[25px] font-semibold tracking-wide">

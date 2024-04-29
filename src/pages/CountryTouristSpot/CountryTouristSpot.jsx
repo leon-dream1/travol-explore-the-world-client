@@ -21,7 +21,7 @@ console.log(selectedCountrySpot);
       <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center">
         All Tourist Spot of {selectedCountrySpot[0]?.country}
       </h2>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-4 lg:m-0">
         {selectedCountrySpot.map((spot) => (
           <div
             key={spot._id}

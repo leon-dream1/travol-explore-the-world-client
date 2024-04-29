@@ -16,7 +16,7 @@ const TouristSpot = () => {
       <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center">
         Tourist Spot
       </h2>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-4 md:m-4 lg:m-0">
         {touristSpot.map((spot) => (
           <div
             key={spot._id}
@@ -45,9 +45,10 @@ const TouristSpot = () => {
             <p className="dark:text-gray-800 pb-6">
               {spot.description.slice(0, 160)}.........
             </p>
-            <button 
-            onClick={() => navigate(`/touristSpot/${spot._id}`)}
-            className="w-full bg-[#425CEC] text-white text-[22px] py-[10px] font-semibold font-merriweather cursor-pointer">
+            <button
+              onClick={() => navigate(`/touristSpot/${spot._id}`)}
+              className="w-full bg-[#425CEC] text-white text-[22px] py-[10px] font-semibold font-merriweather cursor-pointer"
+            >
               View Details
             </button>
           </div>

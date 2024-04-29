@@ -12,14 +12,14 @@ const Banner = () => {
     <div className="carousel w-full">
       <div
         id="slide1"
-        className="carousel-item relative w-full  bg-banner1 bg-no-repeat bg-cover h-[862px]"
+        className="carousel-item relative w-full bg-banner1 bg-no-repeat bg-cover h-[600px] md:h[700px] lg:h-[862px]"
       >
-        <div className="w-[60%] mx-auto flex justify-center items-center">
+        <div className="w-[100%] lg:w-[60%] mx-auto flex justify-center items-center p-6 md:p-0">
           <div className="text-center">
-            <p className="text-[30px] text-black font-serif text-center font-medium">
+            <p className="text-[20px] md:text-[25px] lg:text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+            <h1 className="text-[30px] md:text-[40px] lg:text-[50px] text-white font-merriweather font-extrabold">
               Explore The {/* <span className="text-amber-500">TRAVOL</span> */}
               <span style={{ color: "#FFBF00", fontWeight: "bold" }}>
                 <Typewriter
@@ -53,14 +53,14 @@ const Banner = () => {
       </div>
       <div
         id="slide2"
-        className="carousel-item relative w-full bg-banner2 bg-no-repeat bg-cover h-[862px]"
+        className="carousel-item relative w-full bg-banner2 bg-no-repeat bg-cover h-[600px]  md:h[700px] lg:h-[862px]"
       >
-        <div className="w-[60%] mx-auto flex justify-center items-center">
+        <div className="w-[100%] lg:w-[60%] mx-auto flex justify-center items-center p-6 md:p-0">
           <div className="text-center">
-            <p className="text-[30px] text-black font-serif text-center font-medium">
+            <p className="text-[20px] md:text-[25px] lg:text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[50px] text-blue-600 font-merriweather font-extrabold">
+            <h1 className="text-[30px] md:text-[40px] lg:text-[50px] text-blue-600 font-merriweather font-extrabold">
               Explore The {/* <span className="text-amber-500">TRAVOL</span> */}
               <span style={{ color: "#FFBF00", fontWeight: "bold" }}>
                 <Typewriter
@@ -94,14 +94,14 @@ const Banner = () => {
       </div>
       <div
         id="slide3"
-        className="carousel-item relative w-full bg-banner6 bg-no-repeat bg-cover h-[862px]"
+        className="carousel-item relative w-full bg-banner6 bg-no-repeat bg-cover h-[600px]  md:h[700px] lg:h-[862px]"
       >
-        <div className="w-[60%] mx-auto flex justify-center items-center">
+        <div className="w-[100%] lg:w-[60%] mx-auto flex justify-center items-center p-6 md:p-0">
           <div className="text-center">
-            <p className="text-[30px] text-black font-serif text-center font-medium">
+            <p className="text-[20px] md:text-[25px] lg:text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+            <h1 className="text-[30px] md:text-[40px] lg:text-[50px] text-white font-merriweather font-extrabold">
               Discover The{" "}
               {/* <span className="text-amber-500">TRAVOL</span> */}
               <span style={{ color: "red", fontWeight: "bold" }}>
@@ -136,14 +136,14 @@ const Banner = () => {
       </div>
       <div
         id="slide4"
-        className="carousel-item relative w-full bg-banner7 bg-no-repeat bg-cover h-[862px]"
+        className="carousel-item relative w-full bg-banner7 bg-no-repeat bg-cover h-[600px]  md:h[700px] lg:h-[862px]"
       >
-        <div className="w-[60%] mx-auto flex justify-center items-center">
+        <div className="w-[100%] lg:w-[60%] mx-auto flex justify-center items-center p-6 md:p-0">
           <div className="text-center">
-            <p className="text-[30px] text-black font-serif text-center font-medium">
+            <p className="text-[20px] md:text-[25px] lg:text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+            <h1 className="text-[30px] md:text-[40px] lg:text-[50px] text-white font-merriweather font-extrabold">
               {/* Discover Your Wanderlust Where Will Your
               <span className="text-amber-500"> Next Journey !</span> */}
               Discover Your{" "}
@@ -180,14 +180,14 @@ const Banner = () => {
       </div>
       <div
         id="slide5"
-        className="carousel-item relative w-full bg-banner5 bg-no-repeat bg-cover h-[862px]"
+        className="carousel-item relative w-full bg-banner5 bg-no-repeat bg-cover h-[600px]  md:h[700px] lg:h-[862px]"
       >
-        <div className="w-[60%] mx-auto flex justify-center items-center">
+        <div className="w-[100%] lg:w-[60%] mx-auto flex justify-center items-center p-6 md:p-0">
           <div className="text-center">
-            <p className="text-[30px] text-black font-serif text-center font-medium">
+            <p className="text-[20px] md:text-[25px] lg:text-[30px] text-black font-serif text-center font-medium">
               Lets travel the world with us
             </p>
-            <h1 className="text-[50px] text-white font-merriweather font-extrabold">
+            <h1 className="text-[30px] md:text-[40px] lg:text-[50px] text-white font-merriweather font-extrabold">
               Explore the
               <span style={{ color: "red", fontWeight: "bold" }}>
                 <Typewriter

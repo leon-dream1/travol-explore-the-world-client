@@ -4,10 +4,10 @@ import logo from "../../public/logo.png";
 const Footer = () => {
   return (
     <div className="pt-[80px] bg-slate-600 mt-[100px]">
-      <div className="container mx-auto grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center mb-6 text-center md:text-start p-0 md:p-10 lg:p-0">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center mb-6 text-center md:text-start p-0 md:p-10 lg:p-0">
         <div className="">
           <p className="text-[28px] font-merriweather font-medium">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className="mx-auto md:mx-0"/>
           </p>
           <p className="text-[20px] font-inter mt-2">
             Discover Your Next Adventure: Your Trusted Tourism Management
@@ -21,7 +21,7 @@ const Footer = () => {
             and discovery.
           </p>
         </div>
-        <div className="flex flex-col space-y-4 text-[18px] lg:pl-10">
+        <div className="flex flex-col items-center lg:items-start space-y-4 text-[18px] lg:pl-10">
           <h6 className="footer-title text-white">Services</h6>
           <NavLink to={"/"} className="link link-hover text-white">
             Home
@@ -39,7 +39,7 @@ const Footer = () => {
             All Tourist Spot
           </NavLink>
         </div>
-        <div className="flex flex-col space-y-4 text-[18px] text-white">
+        <div className="flex flex-col items-center lg:items-start space-y-4 text-[18px] text-white">
           <h6 className="footer-title">Social</h6>
           <a className="link link-hover">Twitter</a>
           <a className="link link-hover">Instagram</a>
@@ -54,7 +54,7 @@ const Footer = () => {
                 Enter your email address
               </span>
             </label>
-            <div className="join mt-4">
+            <div className="join mt-4 mx-auto md:mx-0">
               <input
                 type="text"
                 placeholder="username@site.com"

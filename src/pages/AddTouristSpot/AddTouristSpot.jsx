@@ -9,7 +9,7 @@ const AddTouristSpot = () => {
     handleSubmit,
     // eslint-disable-next-line no-unused-vars
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
   const { user } = useContext(AuthContext);
@@ -25,23 +25,23 @@ const AddTouristSpot = () => {
         "Content-type": "application/json",
       },
     })
-    .then(res => res.json())
-    .then(result => {
-      if(result.acknowledged){
-        toast.success("Congratulation!!!!! Spot is added SuccessFully.....");
-        reset()
-      }
-    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.acknowledged) {
+          toast.success("Congratulation!!!!! Spot is added SuccessFully.....");
+          reset();
+        }
+      });
   };
   //   console.log(errors);
   return (
-    <div className="mt-[80px]">
-      <h1 className="text-center text-[40px] font-inter text-blue-700 font-medium mb-[40px]">
+    <div className="mt-[40px] md:p-[60px] lg:mt-[80px]">
+      <h1 className="text-center text-[20px] md:text-[30px] lg:text-[40px] font-inter text-blue-700 font-medium mb-[40px]">
         Add Your Favorite Spot
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-6 container mx-auto border rounded-lg p-[80px]"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 container mx-auto border rounded-lg p-[20px] md:p-[40px] lg:p-[80px]"
       >
         <div>
           <input
@@ -136,7 +136,7 @@ const AddTouristSpot = () => {
             required
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <input
             type="text"
             placeholder="Short Description"
@@ -145,7 +145,7 @@ const AddTouristSpot = () => {
             required
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <input
             type="submit"
             value="ADD"

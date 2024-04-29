@@ -64,14 +64,14 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-4 lg:p-0 shadow bg-base-100 rounded-box w-52 space-y-4 lg:space-y-0 "
               >
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
                     isActive
                       ? " text-amber-600 text-[18px] font-raleway font-bold"
-                      : "text-white text-[18px] font-merriweather font-medium"
+                      : "text-black text-[18px] font-merriweather font-medium"
                   }
                 >
                   Home
@@ -81,7 +81,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive
                       ? " text-amber-600 text-[18px] font-raleway font-bold"
-                      : "text-white text-[18px] font-merriweather font-medium"
+                      : "text-black text-[18px] font-merriweather font-medium"
                   }
                 >
                   All Tourist Spot
@@ -91,7 +91,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive
                       ? " text-amber-600 text-[18px] font-raleway font-bold"
-                      : "text-white text-[18px] font-merriweather font-medium"
+                      : "text-black text-[18px] font-merriweather font-medium"
                   }
                 >
                   Add Tourist Spot
@@ -101,15 +101,39 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive
                       ? " text-amber-600 text-[18px] font-raleway font-bold"
-                      : "text-white text-[18px] font-merriweather font-medium"
+                      : "text-black text-[18px] font-merriweather font-medium"
                   }
                 >
                   My List
                 </NavLink>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-amber-600 text-[18px] font-raleway font-bold"
+                      : "text-black text-[18px] font-merriweather font-medium"
+                  }
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to="/register"
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-amber-600 text-[18px] font-raleway font-bold"
+                      : "text-black text-[18px] font-merriweather font-medium"
+                  }
+                >
+                  Register
+                </NavLink>
               </ul>
             </div>
-            <img src={logo} className="w-[40%] cursor-pointer" alt="" />
-            {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
+            <img
+              src={logo}
+              className="w-[60%] md:w-[40%] cursor-pointer"
+              alt=""
+              onClick={() => navigate('/')}
+            />
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-6">
@@ -155,11 +179,10 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </div>
-
           <div className="navbar-end">
             <div>
               {user ? (
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-1 md:space-x-4">
                   <div className="dropdown dropdown-end">
                     <div>
                       <div
@@ -168,7 +191,7 @@ const Navbar = () => {
                         className="btn btn-ghost btn-circle avatar"
                       >
                         <div
-                          className="w-10 rounded-full"
+                          className="w-8 rounded-full"
                           data-tooltip-id="my-tooltip"
                         >
                           <img
@@ -195,13 +218,13 @@ const Navbar = () => {
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="bg-[#ee4040] text-white  text-[14px] md:text-[18px] font-merriweather font-semibold px-[20px] md:px-[35px] py-[10px] rounded-lg"
+                    className="bg-[#ee4040] text-white text-[14px] md:text-[18px] font-merriweather font-semibold px-[10px] md:px-[35px] py-[5px] rounded-lg"
                   >
                     Log out
                   </button>
                 </div>
               ) : (
-                <div className="space-x-6">
+                <div className="hidden lg:flex space-x-6">
                   <button
                     onClick={() => navigate("/login")}
                     className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
@@ -210,7 +233,7 @@ const Navbar = () => {
                   </button>
                   <button
                     onClick={() => navigate("/register")}
-                    className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                    className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px]  rounded-md font-merriweather"
                   >
                     Register
                   </button>
@@ -230,7 +253,7 @@ const Navbar = () => {
                 Register
               </button> */}
             </div>
-            <div className="ml-[30px]">
+            <div className="lg:ml-[30px]">
               <label className="swap swap-rotate">
                 {/* this hidden checkbox controls the state */}
                 <input

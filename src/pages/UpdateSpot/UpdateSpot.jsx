@@ -16,13 +16,16 @@ const UpdateSpot = () => {
   const onSubmit = (data) => {
     const updatedSpot = data;
     console.log(updatedSpot);
-    fetch(`https://travol-explore-the-world-server.vercel.app/touristSpot/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(updatedSpot),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://travol-explore-the-world-server.vercel.app/touristSpot/${id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(updatedSpot),
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -34,12 +37,12 @@ const UpdateSpot = () => {
 
   return (
     <div className="mt-[80px]">
-      <h1 className="text-center text-[40px] font-inter text-blue-700 font-medium mb-[40px]">
+      <h1 className="text-center text-[20px] md:text-[30px] lg:text-[40px] font-inter text-blue-700 font-medium mb-[40px]">
         Update Your Favorite Spot Information
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-6 container mx-auto border rounded-lg p-[80px]"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 container mx-auto border rounded-lg p-[20px] md:p-[40px] lg:p-[80px]"
       >
         <div>
           <input
@@ -114,7 +117,7 @@ const UpdateSpot = () => {
             required
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <input
             type="text"
             placeholder="Short Description"
@@ -123,7 +126,7 @@ const UpdateSpot = () => {
             required
           />
         </div>
-        <div className="col-span-2">
+        <div className="md:col-span-2">
           <input
             type="submit"
             value="UPDATE"

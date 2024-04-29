@@ -17,7 +17,7 @@ const CountrySection = () => {
       <h2 className="text-[40px] text-blue-600 font-bold font-montserrat text-center">
         Country Information
       </h2>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-4 md:m-4 lg:m-0 gap-6">
         {countries.map((country) => (
           <div
             onClick={() => navigate(`/countryAllTouristSpot/${country.country_name}`)}
