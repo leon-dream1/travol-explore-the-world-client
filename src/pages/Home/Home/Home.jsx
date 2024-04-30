@@ -2,6 +2,7 @@ import Banner from "../Banner/Banner";
 import CountrySection from "../CountrySection/CountrySection";
 import Marketing from "../Marketing/Marketing";
 import TouristSpot from "../TouristSpot/TouristSpot";
+import Video from "../Video/Video";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <TouristSpot />
       <CountrySection />
       <Marketing />
+      <Video />
     </div>
   );
 };
